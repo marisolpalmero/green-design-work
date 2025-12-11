@@ -110,7 +110,7 @@ rate at which a device consumes or produces electrical energy
 (typically expressed in Watts). Energy, by contrast, represents the
 cumulative amount of work performed over time (typically expressed in
 Joules or Watt-hours). Both concepts are required within this YANG
-module: Power enables real-time monitoring, control, and optimization
+module. Power enables real-time monitoring, control, and optimization
 of device operation, while Energy provides a time-integrated view
 necessary for accounting, reporting, and even for sustainability
 analysis. This specification includes both Power and Energy

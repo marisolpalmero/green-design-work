@@ -51,7 +51,7 @@ module ietf-energy-object-power {
       "RFC XXXX: Energy Object YANG Data Model";
   }
   
-  identity data-accuracy {
+  identity data-source-accuracy {
     description
       "Base identity for all possible data accuracy types.
        This identity serves as the root for a hierarchy of accuracy
@@ -62,7 +62,7 @@ module ietf-energy-object-power {
        Other modules may extend this hierarchy with additional
        accuracy base- and sub-types as needed.
 
-       data-accuracy
+       data-source-accuracy
         ├── accuracy-unknown
         │    └── accuracy-unavailable
         ├── accuracy-estimated
@@ -78,18 +78,18 @@ module ietf-energy-object-power {
       ";
   }
   identity accuracy-unknown {
-    base data-accuracy;
+    base data-source-accuracy;
     description
       "The accuracy of the power data is unknown.";
   }
   identity accuracy-unavailable {
-    base data-accuracy-unknown;
+    base accuracy-unknown;
     description
       "A power data is not available for some reason, such
         as a sensor failure or a component being powered off.";
   }
   identity accuracy-estimated {
-    base data-accuracy;
+    base data-source-accuracy;
     description
       "The power data is estimated, perhaps based on a model,
        history or calculation rather than a direct measurement.";
@@ -114,7 +114,7 @@ module ietf-energy-object-power {
        model prediction.";
   }
   identity accuracy-measured {
-    base data-accuracy;
+    base data-source-accuracy;
     description
       "The power data is a direct, real-time measurement
        from a sensor.";
@@ -240,8 +240,8 @@ module ietf-energy-object-power {
       leaf object-id {
         type string;
         description
-          "An identifier that uniquely identifies the energy object in
-           a device.";
+          "An identifier that uniquely identifies the energy object 
+          in a device.";
       }        
       
       leaf source-component-id {
@@ -249,9 +249,10 @@ module ietf-energy-object-power {
           path "/hw:hardware/hw:component/hw:name";
         }
         description
-          "Reference to the component name in the ietf-hardware model.
-           This leaf creates a direct semantic link between the power 
-           attributes and the physical component they describe.";
+          "Reference to the component name in the ietf-hardware 
+          model. This leaf creates a direct semantic link between the
+          power attributes and the physical component they describe.
+          ";
       }
             
       leaf eo-power {
@@ -260,9 +261,10 @@ module ietf-energy-object-power {
         description
           "The current power usage measurement for the energy object.
            This value represents the instantaneous power consumption
-           of the component. Positive values indicate power consumption,
-           while negative values can indicate power generation (e.g., for
-           devices with battery backup or renewable energy sources).";
+           of the component. Positive values indicate power 
+           consumption, while negative values can indicate power 
+           generation (e.g., for devices with battery backup or 
+           renewable energy sources).";
         reference
           "RFC 7460: eoPower object";
       }
@@ -271,10 +273,10 @@ module ietf-energy-object-power {
         type uint32;
         units "Watts";
         description
-          "The nameplate power rating of an energy object. This is the
-           maximum power that the device is designed to consume or
-           produce, as specified by the manufacturer. Essential for
-           power budget calculations and capacity planning.";
+          "The nameplate power rating of an energy object. This is 
+          the maximum power that the device is designed to consume or
+          produce, as specified by the manufacturer. Essential for
+          power budget calculations and capacity planning.";
         reference
           "RFC 7460: eoPowerNameplate object";
       }
@@ -284,10 +286,11 @@ module ietf-energy-object-power {
           base unit-multiplier;
         }
         description
-          "The unit multiplier used to measure the power or energy. This 
-           multiplier applies to both eo-power and eo-power-nameplate 
-           values, allowing representation of power values from milliwatts 
-           to gigawatts using integer arithmetic.";
+          "The unit multiplier used to measure the power or energy. 
+          This multiplier applies to both eo-power and 
+          eo-power-nameplate values, allowing representation of power
+          values from milliwatts to gigawatts using integer 
+          arithmetic.";
         reference
           "RFC 7460: eoPowerUnitMultiplier object";
       }
@@ -296,22 +299,26 @@ module ietf-energy-object-power {
         type int32;
         units "Percentage";
         description
-          "The presumed accuracy of the power measurement, expressed as
-           a percentage. Positive values indicate the degree of accuracy,
-           while negative values might indicate specific error conditions.
-           This value helps management applications assess the reliability
-           of the power data.";
+          "The presumed accuracy of the power measurement, expressed 
+          as a percentage. Positive values indicate the degree of 
+          accuracy, while negative values might indicate specific 
+          error conditions. This value helps management applications 
+          assess the reliability of the power data.";
         reference
           "RFC 7460: eoPowerAccuracy object";
       }
       
-      leaf eo-power-measurement-provenance {
-        type measurement-provenance;
+      leaf eo-power-data-source-accuracy {
+        type identityref {
+          base data-source-accuracy;
+        }
         description
-          "The provenance of the power measurement. Indicates whether the
-           value is a direct measurement, an estimate, or unavailable.
-           This metadata is crucial for network management applications
-           to assess the reliability and accuracy of the power data.";
+          "The accuracy of the power data source. Indicates whether 
+          the data source is a direct measurement, an estimate, or 
+          unavailable and also the accuracy level of the data source. 
+          This metadata is crucial for network management 
+          applications to assess the reliability and accuracy of the 
+          power data.";
         reference
           "RFC 7460: eoPowerMeasurementCaliber object";
       }
@@ -320,9 +327,9 @@ module ietf-energy-object-power {
         type power-factor;
         description
           "The percent value of the power factor measurement for the 
-          energy object. This information is important for understanding 
-          the electrical characteristics of the device and for correctly 
-          interpreting the power data.";
+          energy object. This information is important for 
+          understanding the electrical characteristics of the device
+          and for correctly interpreting the power data.";
         reference
           "Replaces RFC 7460: eoPowerCurrentType object";
       }
@@ -331,10 +338,10 @@ module ietf-energy-object-power {
         type boolean;
         description
           "Indicates whether the power measurement is local (true) or
-           remote (false). A local measurement is taken directly at the
-           device, while a remote measurement is collected from an external
-           source. This information can be useful for troubleshooting and
-           understanding the data source.";
+           remote (false). A local measurement is taken directly at 
+           the device, while a remote measurement is collected from
+           an external source. This information can be useful for 
+           troubleshooting and understanding the data source.";
         reference
           "RFC 7460: eoPowerMeasurementLocal object";
       }
@@ -344,12 +351,13 @@ module ietf-energy-object-power {
           base power-state;
         }
         description
-          "The administratively desired power state for the energy object.
-           This is the power state that a management application wants the
-           device to be in. The actual operational state may differ due to
-           automatic power management, thermal constraints, or other factors.
-           This leaf is read-write, allowing management applications to
-           control the power state of components.";
+          "The administratively desired power state for the energy 
+          object. This is the power state that a management 
+          application wants the device to be in. The actual 
+          operational state may differ due to automatic power 
+          management, thermal constraints, or other factors. 
+          This leaf is read-write, allowing management applications
+          to control the power state of components.";
         reference
           "RFC 7460: eoPowerAdminState object";
       }
@@ -361,10 +369,11 @@ module ietf-energy-object-power {
         config false;
         description
           "The current operational power state of the energy object.
-           This is the actual power state that the device is currently in,
-           which may differ from the administrative state if, for example,
-           a power-saving feature has automatically changed the state.
-           This leaf is read-only, as its value is determined by the device.";
+           This is the actual power state that the device is 
+           currently in, which may differ from the administrative 
+           state if, for example, a power-saving feature has 
+           automatically changed the state. This leaf is read-only, 
+           as its value is determined by the device.";
         reference
           "RFC 7460: eoPowerOperState object";
       }
@@ -373,10 +382,11 @@ module ietf-energy-object-power {
         type string;
         description
           "A textual description of the reason why the energy object
-           entered its current power state. This information is valuable
-           for troubleshooting, auditing, and understanding the behavior
-           of the device's power management features. Examples include
-           'user command', 'automatic power-saving', or 'thermal protection activated'.";
+           entered its current power state. This information is 
+           valuable for troubleshooting, auditing, and understanding 
+           the behavior of the device's power management features. 
+           Examples include 'user command', 'automatic power-saving',
+            or 'thermal protection activated'.";
         reference
           "RFC 7460: eoPowerStateEnterReason object";
       }
