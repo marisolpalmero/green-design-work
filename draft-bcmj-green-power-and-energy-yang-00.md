@@ -1,7 +1,7 @@
 ---
 title: Power and Energy YANG Module
 abbrev: GREEN-PEM-YANG
-docname: draft-bcm-green-power-and-energy-yang-00
+docname: draft-bcmj-green-power-and-energy-yang-00
 category: std
 submissionType: IETF
 
