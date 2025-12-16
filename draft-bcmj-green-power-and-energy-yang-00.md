@@ -194,7 +194,7 @@ carriers on Energy Efficiency. Compared to the MIB modules, some
 definitions and types are optimized, some new Energy Objects are added
 and some legacy Energy Objects are removed accordingly.
 
-# Power and Energy YANG Modules
+# Power and Energy YANG Module
 
 This YANG Module is used to monitor and control Power and Energy usage
 of network devices and the components on these devices.
