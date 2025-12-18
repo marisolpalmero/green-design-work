@@ -1,7 +1,7 @@
 ---
 title: Power and Energy YANG Module
 abbrev: GREEN-PEM-YANG
-docname: draft-bcmj-green-power-and-energy-yang-00
+docname: draft-bcmj-green-power-and-energy-yang
 category: std
 submissionType: IETF
 
@@ -18,7 +18,7 @@ date:
 
 # Document controls
 
-stand_alone: yes 
+stand_alone: yes
 pi: [toc, sortrefs, symrefs, docmapping]
 
 # Authors
@@ -88,7 +88,7 @@ Processing Unit (MPU).
 ## Terminology
 
 This document makes use of the terms defined in
-{{!I-D.ietf-green-terminology-00}}: 
+{{!I-D.ietf-green-terminology-00}}:
 
     - Power
     - Energy
