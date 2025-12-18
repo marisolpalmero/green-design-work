@@ -142,7 +142,7 @@ consumption of each Energy Object as well as the units, sign,
 measurement accuracy, etc. A containment tree view of the Power and
 Energy Monitoring is presented.
 
-~~~~ txt
+~~~~ yangtree
 {::include yang/ietf-power-and-energy.txt}
 ~~~~
 {: markers="true" name="ietf-power-and-energy@2025-12.txt”}
