@@ -94,6 +94,7 @@ This document makes use of the terms defined in
     - Energy
     - Energy Management
     - Energy Monitoring
+    - Energy Control
     - Energy Efficiency/Energy Efficiency Ratio
     - Device Level Energy Efficiency (DLEE)
     - Component Level Energy Efficiency (CLEE)
