@@ -1,19 +1,19 @@
 <!-- regenerate: on (set to off if you edit this file) -->
 
-# Green Core Model Design Work
+# Power and Energy YANG Module
 
-This is the working area for the individual Internet-Draft, "Green Core Model Design Work".
+This is the working area for the individual Internet-Draft, "Power and Energy YANG Module".
 
-* [Editor's Copy](https://ietf-wg-green.github.io/green-design-work/#go.draft-gdt-green-design-work.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-gdt-green-design-work)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-gdt-green-design-work)
-* [Compare Editor's Copy to Individual Draft](https://ietf-wg-green.github.io/green-design-work/#go.draft-gdt-green-design-work.diff)
+* [Editor's Copy](https://ietf-wg-green.github.io/green-design-work/#go.draft-bcmj-green-power-and-energy-yang.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-bcmj-green-power-and-energy-yang)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-bcmj-green-power-and-energy-yang)
+* [Compare Editor's Copy to Individual Draft](https://ietf-wg-green.github.io/green-design-work/#go.draft-bcmj-green-power-and-energy-yang.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/ietf-wg-green/green-design-work/blob//CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/ietf-wg-green/green-design-work/blob/main/CONTRIBUTING.md).
 
 The contributing file also has tips on how to make contributions, if you
 don't already know how to do that.
