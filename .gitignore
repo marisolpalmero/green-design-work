@@ -13,6 +13,7 @@
 /.refcache
 /.venv/
 /.vscode/
+/out/
 /lib
 /node_modules/
 /versioned/
