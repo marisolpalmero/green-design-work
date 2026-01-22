@@ -28,7 +28,8 @@ module ietf-power-and-energy {
   
   description
     "This YANG module specifies for Power and Energy monitoring and 
-     control of devices within or connected to communication networks.
+     control of devices within or connected to communication 
+     networks.
      
      Copyright (c) 2025 IETF Trust and the persons identified as
      authors of the code. All rights reserved.
